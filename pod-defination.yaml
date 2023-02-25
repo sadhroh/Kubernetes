@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-node-webapp
+  labels:
+    app: node-webapp
+    type: frontend
+spec:
+  containers:
+    - name: hello-cont
+      image: rohitdocker28/wipro-exp:hello-node-app

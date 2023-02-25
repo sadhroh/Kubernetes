@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hello-node-webapp-rs
+  labels:
+    app: node-webapp-rs
+    type: frontend-rs
+spec:
+  replicas: 5
+  template:
+    metadata:
+      name: hello-node-webapp-pod
+      labels:
+        app: node-webapp-pod
+        type: frontend-pod
+    spec:
+      containers:
+        - name: hello-node-cont
+          image: rohitdocker28/wipro-exp:hello-node-app
+  selector:
+    matchLabels:
+      app: node-webapp-pod

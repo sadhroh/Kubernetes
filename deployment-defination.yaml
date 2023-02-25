@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-node-webapp-depobj
+  labels:
+    app: node-webapp-depobj
+    type: frontend-depobj
+spec:
+  replicas: 6
+  template:
+    metadata:
+      name: hello-node-webapp-pod
+      labels:
+        app: node-webapp-pod
+        type: frontend-pod
+    spec:
+      containers:
+        - name: hello-node-cont
+          image: rohitdocker28/wipro-exp:hello-node-app
+  selector:
+    matchLabels:
+      app: node-webapp-pod
